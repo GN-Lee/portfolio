@@ -10,7 +10,7 @@ const AboutMe = () => {
   return (
     <div
       ref={ref}
-      className="w-full min-h-screen bg-purple-50 text-gray-800 flex flex-col items-center justify-center px-4 py-20"
+      className="w-full min-h-screen text-gray-800 flex flex-col items-center justify-center px-4 py-20"
       id="about"
     >
       <div className="max-w-4xl w-full space-y-12">
@@ -19,7 +19,7 @@ const AboutMe = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8 }}
-            className="text-6xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent animate-pulse"
+            className="text-6xl font-bold text-[#A68164]"
           >
             더욱 더 발전하고자 하는
           </motion.h1>
@@ -29,7 +29,7 @@ const AboutMe = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, type: "spring" }}
-          className="bg-gradient-to-r from-purple-100/80 via-pink-100/80 to-red-100/80 backdrop-blur-sm rounded-2xl p-8 space-y-6 border border-purple-200/30 shadow-xl"
+          className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 space-y-6 border border-gray-200 shadow-lg"
         >
           <motion.p
             initial={{ opacity: 0, x: -50 }}
@@ -44,7 +44,7 @@ const AboutMe = () => {
                 isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }
               }
               transition={{ duration: 0.5, delay: 0.4, type: "spring" }}
-              className="font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent"
+              className="font-bold text-amber-900"
             >
               다양한 경험을 통하여 발전하고자 하는
             </motion.span>{" "}
@@ -53,7 +53,7 @@ const AboutMe = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="text-pink-500 font-semibold"
+              className="text-amber-900 font-semibold"
             >
               이광녕
             </motion.span>
@@ -66,7 +66,7 @@ const AboutMe = () => {
                   : { opacity: 0, rotate: -10 }
               }
               transition={{ duration: 0.5, delay: 0.8 }}
-              className="text-blue-500 font-semibold"
+              className="text-amber-900 font-semibold"
             >
               React
             </motion.span>
@@ -79,7 +79,7 @@ const AboutMe = () => {
                   : { opacity: 0, rotate: 10 }
               }
               transition={{ duration: 0.5, delay: 1 }}
-              className="text-teal-500 font-semibold"
+              className="text-amber-900 font-semibold"
             >
               {" "}
               Next.js
@@ -91,7 +91,7 @@ const AboutMe = () => {
                 isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.5 }
               }
               transition={{ duration: 0.5, delay: 1.2 }}
-              className="text-red-500 font-semibold"
+              className="text-amber-900 font-semibold"
             >
               nest.js
             </motion.span>
@@ -105,9 +105,9 @@ const AboutMe = () => {
             className="text-lg leading-relaxed text-gray-700"
           >
             풀스택 국비과정을 통하여 현 시대에 필요한 프론트엔드와 백엔드를
-            배우고 있습니다. 프로젝트를 진행하며 개발의 재미를 느끼며 발전하고자
-            합니다. 프로젝트를 진행하며 개인과 팀원들과의 차이를 느끼며
-            팀원들과의 소통을 중요하게 생각합니다.
+            배우고 있습니다. 프로젝트를 진행하면서 개발의 재미를 느끼고 있으며
+            더욱 발전하고자 합니다. 다양한 프로젝트에 참여하여 개인과 팀
+            프로젝트의 차이를 느끼며 팀원들과의 소통을 중요하게 생각합니다.
           </motion.p>
 
           <motion.p
@@ -130,7 +130,7 @@ const AboutMe = () => {
                 type: "spring",
                 stiffness: 200,
               }}
-              className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent font-bold"
+              className="text-amber-900 font-bold"
             >
               {" "}
               열정 가득한 개발자

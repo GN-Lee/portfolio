@@ -54,7 +54,7 @@ const plan = () => {
       startDate: "2025.05.12",
       endDate: "",
       description:
-        "Next.js와 NestJS를 기반으로 4~6명이 진행 예정인 프로젝트로 OTT사이트 혹은 삼성이나 애플같은 브랜드의 사이트를 Clone Coding으로 할 예정",
+        "Next.js와 NestJS를 기반으로 4~6명이 진행 예정인 프로젝트로 OTT사이트 혹은 삼성이나 애플같은 브랜드의 사이트를 Clone Coding 할 예정",
     },
   ];
   const containerVariants = {

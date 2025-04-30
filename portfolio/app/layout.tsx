@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "광녕's 포트폴리오",
   description: "광녕's 포트폴리오",
   icons: {
-    icon: "/starryNight.jpg",
+    icon: "/로고.jpg",
   },
 };
 

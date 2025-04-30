@@ -51,17 +51,17 @@ const Header = () => {
       initial={{ x: 100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed right-0 top-1/2 transform -translate-y-1/2 z-50 bg-gradient-to-r from-purple-100/90 via-pink-100/90 to-rose-100/90 backdrop-blur-sm p-6 rounded-l-2xl shadow-[0_0_15px_rgba(0,0,0,0.1)] border-l border-t border-b border-purple-200/30"
+      className="fixed right-0 top-1/2 transform -translate-y-1/2 z-50 bg-white/95 backdrop-blur-sm p-6 rounded-l-2xl shadow-lg border-l border-t border-b border-[#A68164]/20"
     >
       <nav className="flex flex-col gap-7">
         <motion.div
-          className="flex flex-col items-end gap-2 mb-6 md:block hidden"
+          className="flex flex-col items-end gap-2 mb-6 hidden md:flex"
           whileHover={{ scale: 1.05 }}
         >
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent hover:from-purple-600 hover:to-pink-600 transition-all duration-300">
+          <h1 className="text-3xl font-bold text-[#A68164] hover:text-[#8B6B4E] transition-all duration-300">
             GN,Lee
           </h1>
-          <span className="text-sm text-gray-600 font-medium italic">
+          <span className="text-sm text-[#C4A68D] font-medium italic">
             Full Stack Developer
           </span>
         </motion.div>
@@ -75,9 +75,9 @@ const Header = () => {
               const element = document.querySelector(link.href);
               element?.scrollIntoView({ behavior: "smooth" });
             }}
-            className={`relative text-right px-4 py-2 text-gray-700 hover:text-purple-600 transition-all duration-300 group ${
+            className={`relative text-right px-4 py-2 text-[#C4A68D] hover:text-[#A68164] transition-all duration-300 group ${
               activeSection === link.href.slice(1)
-                ? "text-purple-600 font-semibold"
+                ? "text-[#8B6B4E] font-semibold"
                 : ""
             }`}
             whileHover={{ x: -8 }}
@@ -86,13 +86,13 @@ const Header = () => {
             {activeSection === link.href.slice(1) && (
               <motion.div
                 layoutId="activeSection"
-                className="absolute right-0 top-0 w-1 h-full bg-gradient-to-b from-purple-400 to-pink-400 rounded-full"
+                className="absolute right-0 top-0 w-1 h-full bg-[#A68164] rounded-full"
                 initial={false}
                 transition={{ type: "spring", stiffness: 380, damping: 30 }}
               />
             )}
             <span className="inline-flex items-center gap-2">
-              <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent font-medium md:inline hidden">
+              <span className="text-[#A68164] font-medium md:inline hidden">
                 {link.text}
               </span>
               <span className="text-lg transition-opacity duration-300">

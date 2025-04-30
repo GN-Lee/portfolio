@@ -15,7 +15,7 @@ const Plan = () => {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
-      className="w-full min-h-screen bg-purple-50 text-gray-800 flex flex-col items-center justify-center px-4 py-20"
+      className="w-full min-h-screen text-gray-800 flex flex-col items-center justify-center px-4 py-20"
       id="plan"
     >
       <motion.h2
@@ -23,7 +23,7 @@ const Plan = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.8 }}
-        className="text-5xl font-bold mb-12 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent"
+        className="text-5xl font-bold mb-12 text-[#8B6B4E] drop-shadow-lg"
       >
         프로젝트 진행 내역
       </motion.h2>
@@ -35,15 +35,15 @@ const Plan = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-[1.02] border border-purple-100"
+            className="bg-gradient-to-br from-white/95 via-white/90 to-[#E5D3C3]/20 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all hover:scale-[1.02] border border-[#C4A68D]/30"
           >
-            <h3 className="text-2xl font-semibold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-3">
+            <h3 className="text-2xl font-semibold text-[#8B6B4E] mb-3 drop-shadow">
               {plan.projectName}
             </h3>
             <p className="text-gray-700 text-lg mb-4 min-h-[80px] font-medium leading-relaxed">
               {plan.description}
             </p>
-            <div className="flex items-center text-sm text-purple-500 font-medium">
+            <div className="flex items-center text-base text-[#A68164] font-semibold">
               <span>{plan.startDate}</span>
               <span className="mx-2">~</span>
               <span>{plan.endDate}</span>
@@ -56,7 +56,7 @@ const Plan = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="text-5xl font-bold my-12 bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+        className="text-5xl font-bold my-12 text-[#8B6B4E] drop-shadow-lg"
       >
         진행 예정 프로젝트
       </motion.h2>
@@ -70,20 +70,22 @@ const Plan = () => {
               isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
             }
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="w-full max-w-4xl bg-gradient-to-br from-white/90 to-purple-50/90 backdrop-blur-sm p-8 rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-[1.02] border-l-4 border-blue-500"
+            className="w-full max-w-4xl bg-gradient-to-br from-white/95 via-[#E5D3C3]/10 to-[#C4A68D]/20 backdrop-blur-sm p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all hover:scale-[1.02] border-l-4 border-[#8B6B4E]"
           >
-            <h3 className="text-2xl font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-3">
+            <h3 className="text-2xl font-semibold text-[#8B6B4E] mb-3 drop-shadow">
               {project.projectName}
             </h3>
             <p className="text-gray-700 text-lg mb-4 min-h-[80px] leading-relaxed">
               {project.description}
             </p>
-            <div className="flex items-center text-sm">
-              <span className="text-blue-500 font-medium">
+            <div className="flex items-center text-base">
+              <span className="text-[#A68164] font-semibold">
                 {project.startDate}
               </span>
-              <span className="mx-2 text-blue-500">~</span>
-              <span className="text-blue-600 font-bold">{project.endDate}</span>
+              <span className="mx-2 text-[#A68164] font-semibold">~</span>
+              <span className="text-[#8B6B4E] font-extrabold">
+                {project.endDate}
+              </span>
             </div>
           </motion.div>
         ))}

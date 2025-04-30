@@ -25,4 +25,13 @@ export class VisitorController {
   remove(@Param('id') id: string) {
     return this.visitorService.remove(+id);
   }
+
+  // 대댓글 추가하기
+  @Post(':id/reply')
+  addReply(
+    @Param('id') id: string,
+    @Body() reply: { comment: string; nickname: string },
+  ) {
+    return this.visitorService.addReply(+id, reply);
+  }
 }

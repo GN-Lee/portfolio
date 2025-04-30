@@ -57,7 +57,6 @@ export class VisitorService {
       throw new NotFoundException('방문자를 찾을 수 없습니다.');
     }
 
-    // Delete associated replies first
     if (findVisitor.replies && findVisitor.replies.length > 0) {
       await Promise.all(
         findVisitor.replies.map((reply) =>
@@ -68,5 +67,20 @@ export class VisitorService {
 
     await this.visitorRepository.delete(id);
     return { success: true, code: 200, message: '방문자 삭제 성공' };
+  }
+
+  // 대댓글 추가하기
+  async addReply(id: number, reply: { comment: string; nickname: string }) {
+    const visitor = await this.visitorRepository.findOne({ where: { id } });
+    if (!visitor) {
+      throw new Error('Visitor not found');
+    }
+
+    const responseComment = this.responseCommentRepository.create({
+      ...reply,
+      visitor,
+    });
+
+    return this.responseCommentRepository.save(responseComment);
   }
 }

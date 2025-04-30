@@ -29,16 +29,16 @@ export default function RegisterPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-400 to-pink-400 text-white py-16 px-8">
-      <div className="max-w-4xl mx-auto backdrop-blur-lg bg-white/10 rounded-2xl p-8 border border-white/20 shadow-xl">
-        <h1 className="text-5xl font-bold text-center mb-12 bg-gradient-to-r from-purple-800 to-pink-800 bg-clip-text text-transparent animate-pulse">
+    <main className="min-h-screen bg-gradient-to-br from-[#FDFBF7] to-[#A68164] py-16 px-8">
+      <div className="max-w-4xl mx-auto bg-white/95 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+        <h1 className="text-4xl font-bold text-center mb-12 text-[#A68164]">
           방명록 작성
         </h1>
         <form onSubmit={handleSubmit} className="space-y-8">
-          <div className="backdrop-blur-sm bg-white/5 rounded-xl p-6 border border-white/10 transition-all duration-300 hover:border-white/30">
+          <div className="bg-[#A68164]/5 rounded-xl p-6 transition-all duration-300">
             <label
               htmlFor="author"
-              className="block text-xl font-medium text-white mb-3"
+              className="block text-xl font-medium text-[#A68164] mb-3"
             >
               작성자
             </label>
@@ -49,15 +49,15 @@ export default function RegisterPage() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-white/50 backdrop-blur-sm transition-all duration-300"
+              className="w-full px-4 py-3 bg-white border-2 border-[#A68164]/20 rounded-lg focus:outline-none focus:border-[#A68164] focus:ring-2 focus:ring-[#A68164]/20 text-gray-700 placeholder-gray-400 transition-all duration-300"
               placeholder="이름을 입력해주세요"
             />
           </div>
 
-          <div className="backdrop-blur-sm bg-white/5 rounded-xl p-6 border border-white/10 transition-all duration-300 hover:border-white/30">
+          <div className="bg-[#A68164]/5 rounded-xl p-6 transition-all duration-300">
             <label
               htmlFor="content"
-              className="block text-xl font-medium text-white mb-3"
+              className="block text-xl font-medium text-[#A68164] mb-3"
             >
               내용
             </label>
@@ -68,23 +68,23 @@ export default function RegisterPage() {
               onChange={handleChange}
               required
               rows={5}
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-white/50 backdrop-blur-sm transition-all duration-300"
+              className="w-full px-4 py-3 bg-white border-2 border-[#A68164]/20 rounded-lg focus:outline-none focus:border-[#A68164] focus:ring-2 focus:ring-[#A68164]/20 text-gray-700 placeholder-gray-400 transition-all duration-300"
               placeholder="방명록 내용을 입력해주세요"
             />
           </div>
 
-          <div className="flex justify-end space-x-6 pt-4">
+          <div className="flex justify-end space-x-4 pt-4">
             <button
               type="button"
               onClick={() => router.push("/review")}
-              className="px-8 py-3 bg-gradient-to-r from-purple-600/50 to-purple-800/50 rounded-lg hover:from-purple-700/50 hover:to-purple-900/50 transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/30 shadow-lg hover:shadow-xl"
+              className="px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300"
             >
               취소
             </button>
             <button
               type="submit"
               onClick={() => router.push("/review")}
-              className="px-8 py-3 bg-gradient-to-r from-pink-600 to-pink-800 rounded-lg hover:from-pink-700 hover:to-pink-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="px-6 py-3 bg-[#A68164] text-white font-semibold rounded-lg hover:bg-[#8B6B4E] transition-all duration-300 shadow-md hover:shadow-lg"
             >
               등록
             </button>

@@ -6,6 +6,7 @@ import AboutMe from "@/components/Aboutme/AboutMe";
 import Project from "@/components/Project/Project";
 import Skill from "@/components/Skills/Skill";
 import Plan from "@/components/Plan/Plan";
+import { GiAtomicSlashes } from "react-icons/gi";
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -20,26 +21,34 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative cursor-none">
+    <div className="relative cursor-none bg-[#FDFBF7]">
       <motion.div
-        className="fixed w-12 h-12 rounded-full bg-gradient-to-r from-violet-300 to-fuchsia-300 pointer-events-none z-50 blur-sm"
+        className="fixed w-16 h-16 rounded-full bg-[#8B6B4E]/30 pointer-events-none z-100 mix-blend-multiply"
         animate={{
-          x: mousePosition.x - 24,
-          y: mousePosition.y - 24,
+          x: mousePosition.x - 32,
+          y: mousePosition.y - 32,
           scale: 1,
-          opacity: 0.4,
         }}
-        transition={{ duration: 0, ease: "linear" }}
+        transition={{ duration: 0.1, ease: "easeOut" }}
       />
       <motion.div
-        className="fixed w-5 h-5 rounded-full bg-gradient-to-r from-indigo-200 to-purple-300 pointer-events-none z-50 shadow-lg shadow-purple-300/30"
+        className="fixed pointer-events-none z-100"
         animate={{
-          x: mousePosition.x - 10,
-          y: mousePosition.y - 10,
-          scale: 0.9,
+          x: mousePosition.x - 12,
+          y: mousePosition.y - 20,
+          rotate: 360,
         }}
-        transition={{ duration: 0, ease: "linear" }}
-      />
+        transition={{
+          duration: 0,
+          ease: "linear",
+          rotate: {
+            repeat: Infinity,
+            duration: 5,
+          },
+        }}
+      >
+        <GiAtomicSlashes className="w-6 h-6 text-[#8B6B4E]/70" />
+      </motion.div>
       <Main />
       <AboutMe />
       <Project />
