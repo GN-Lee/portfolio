@@ -3,9 +3,15 @@ import { VisitorList } from "@/type/visitorList";
 
 interface VisitorCardProps {
   visitor: VisitorList;
+  isLiked: boolean;
+  onLike: () => void;
 }
 
-export default function VisitorCard({ visitor }: VisitorCardProps) {
+export default function VisitorCard({
+  visitor,
+  isLiked,
+  onLike,
+}: VisitorCardProps) {
   return (
     <Link href={`/review/${visitor.id}`}>
       <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
@@ -18,9 +24,16 @@ export default function VisitorCard({ visitor }: VisitorCardProps) {
               {new Date(visitor.createdAt).toLocaleString()}
             </p>
           </div>
-          <button className="flex items-center space-x-1 text-gray-500 hover:text-red-500">
-            <span>{visitor.likes}</span>
-            <span>{visitor.views}</span>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              onLike();
+            }}
+            className={`flex items-center space-x-1 ${
+              isLiked ? "text-red-500" : "text-gray-500 hover:text-red-500"
+            }`}
+          >
+            <span>❤️ {visitor.likes}</span>
           </button>
         </div>
         <p className="text-gray-700">{visitor.comment}</p>

@@ -21,6 +21,9 @@ export class Visitor {
   @CreateDateColumn({ type: 'timestamp', name: '등록일' })
   createdAt: Date;
 
+  @Column({ type: 'int', name: '좋아요', default: 0 })
+  likes: number;
+
   @OneToMany(
     () => ResponseComment,
     (responseComment) => responseComment.visitor,

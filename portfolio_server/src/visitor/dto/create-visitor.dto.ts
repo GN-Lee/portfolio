@@ -1,4 +1,11 @@
-import { IsNotEmpty, IsString, MaxLength, MinLength } from 'class-validator';
+import { Type } from 'class-transformer';
+import {
+  IsNotEmpty,
+  IsNumber,
+  IsString,
+  MaxLength,
+  MinLength,
+} from 'class-validator';
 
 export class CreateVisitorDto {
   @IsString()
@@ -12,4 +19,8 @@ export class CreateVisitorDto {
   @MinLength(1)
   @MaxLength(1000)
   comment: string;
+
+  @IsNumber()
+  @Type(() => Number)
+  likes?: number;
 }

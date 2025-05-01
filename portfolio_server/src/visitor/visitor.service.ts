@@ -71,16 +71,31 @@ export class VisitorService {
 
   // 대댓글 추가하기
   async addReply(id: number, reply: { comment: string; nickname: string }) {
-    const visitor = await this.visitorRepository.findOne({ where: { id } });
-    if (!visitor) {
-      throw new Error('Visitor not found');
+    try {
+      const visitor = await this.visitorRepository.findOne({ where: { id } });
+      if (!visitor) {
+        throw new NotFoundException('방문자를 찾을 수 없습니다.');
+      }
+
+      const responseComment = this.responseCommentRepository.create({
+        ...reply,
+        visitor,
+      });
+
+      const savedComment =
+        await this.responseCommentRepository.save(responseComment);
+      return {
+        success: true,
+        code: 201,
+        message: '답글 등록 성공',
+        data: savedComment,
+      };
+    } catch (error) {
+      console.error('답글 등록 중 오류:', error);
+      if (error instanceof NotFoundException) {
+        throw error;
+      }
+      throw new Error('답글 등록 중 오류가 발생했습니다.');
     }
-
-    const responseComment = this.responseCommentRepository.create({
-      ...reply,
-      visitor,
-    });
-
-    return this.responseCommentRepository.save(responseComment);
   }
 }

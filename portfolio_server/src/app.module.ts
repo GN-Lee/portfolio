@@ -16,7 +16,7 @@ import { ResponseCommentModule } from './response-comment/response-comment.modul
       password: '1234',
       database: 'portfolio',
       entities: [__dirname + '/**/*.entity.{js,ts}'],
-      // synchronize: true,
+      synchronize: true,
     }),
     VisitorModule,
     PortfolioListModule,

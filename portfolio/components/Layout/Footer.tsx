@@ -39,13 +39,13 @@ const Footer = () => {
 
   return (
     <div
-      className="w-full bg-gradient-to-br from-[#E5D3C3]/30 via-[#C4A68D]/20 to-[#8B6B4E]/10 text-gray-800 py-12 px-4 md:px-8"
+      className="w-full bg-gradient-to-br from-[#E5D3C3]/30 via-[#C4A68D]/20 to-[#8B6B4E]/10 text-gray-800 py-18 px-4 md:px-8"
       id="contact"
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center gap-8">
           <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold font-mono bg-gradient-to-r from-[#8B6B4E] to-[#A68164] bg-clip-text text-transparent">
+            <h2 className="text-3xl cursor-default md:text-4xl font-bold font-mono bg-gradient-to-r from-[#8B6B4E] to-[#A68164] bg-clip-text text-transparent">
               GwangNyeong,Lee
             </h2>
             <p className="mt-2 text-base md:text-lg font-medium bg-gradient-to-r from-[#8B6B4E] via-[#A68164] to-[#C4A68D] bg-clip-text text-transparent animate-pulse hover:scale-105 transform transition-all duration-300 cursor-default px-4">
@@ -95,7 +95,7 @@ const Footer = () => {
             </span>
           </div>
 
-          <p className="text-[#8B6B4E] text-xs md:text-sm text-center">
+          <p className="cursor-default text-[#8B6B4E] text-xs md:text-sm text-center">
             Copyright © 2025 GwangNyeong, Lee. All rights reserved.
           </p>
         </div>
@@ -104,7 +104,7 @@ const Footer = () => {
       {showTopButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-4 md:right-8 bg-[#8B6B4E] text-white p-3 md:p-4 rounded-full shadow-lg hover:bg-[#A68164] transition-all duration-300 animate-bounce"
+          className="fixed bottom-26 right-4 md:right-8 bg-[#8B6B4E] text-white p-3 md:p-4 rounded-full shadow-lg hover:bg-[#A68164] transition-all duration-300 animate-bounce"
           aria-label="Scroll to top"
         >
           <FaArrowUp className="w-5 h-5 md:w-6 md:h-6" />

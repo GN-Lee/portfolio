@@ -33,7 +33,7 @@ const Page = () => {
   };
 
   useEffect(() => {
-    fetchVisitor();
+    if (window) fetchVisitor();
   }, [id]);
 
   const handleDelete = async () => {
@@ -63,18 +63,26 @@ const Page = () => {
         `http://localhost:3001/visitor/${id}/reply`,
         {
           comment: comment.trim(),
-          nickname: "관리자",
+          nickname: "익명의 유저",
         }
       );
 
-      if (response.status === 201) {
+      if (response.data.success) {
         alert("답글이 등록되었습니다.");
         setComment("");
         await fetchVisitor();
+      } else {
+        alert(response.data.message || "답글 등록에 실패했습니다.");
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("답글 등록 중 오류가 발생했습니다:", error);
-      alert("답글 등록 중 오류가 발생했습니다.");
+      if (error.response) {
+        alert(
+          error.response.data.message || "답글 등록 중 오류가 발생했습니다."
+        );
+      } else {
+        alert("서버와의 통신 중 오류가 발생했습니다.");
+      }
     }
   };
 

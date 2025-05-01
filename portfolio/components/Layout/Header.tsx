@@ -9,31 +9,33 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const handleScroll = () => {
-      const viewportHeight = window.innerHeight;
-      const scrollPosition = window.scrollY;
+    if (typeof window !== "undefined") {
+      const handleScroll = () => {
+        const viewportHeight = window.innerHeight;
+        const scrollPosition = window.scrollY;
 
-      if (scrollPosition > viewportHeight / 2) {
-        setShowHeader(true);
-      } else {
-        setShowHeader(false);
-      }
+        if (scrollPosition > viewportHeight / 2) {
+          setShowHeader(true);
+        } else {
+          setShowHeader(false);
+        }
 
-      const sections = ["AboutMe", "Project", "Skill", "Footer"];
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 50 && rect.bottom >= 50) {
-            setActiveSection(section);
-            break;
+        const sections = ["AboutMe", "Project", "Skill", "Plan", "Footer"];
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 50 && rect.bottom >= 50) {
+              setActiveSection(section);
+              break;
+            }
           }
         }
-      }
-    };
+      };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
   if (!showHeader) return null;
@@ -51,9 +53,9 @@ const Header = () => {
       initial={{ x: 100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed right-0 top-1/2 transform -translate-y-1/2 z-50 bg-white/95 backdrop-blur-sm p-6 rounded-l-2xl shadow-lg border-l border-t border-b border-[#A68164]/20"
+      className="fixed md:right-0 right-1/2 md:top-1/2 bottom-4 transform md:-translate-y-1/2 md:translate-x-0 translate-x-1/2 z-50 bg-white/95 backdrop-blur-sm p-6 rounded-2xl md:rounded-l-2xl shadow-lg md:border-l md:border-t md:border-b border border-[#A68164]/20"
     >
-      <nav className="flex flex-col gap-7">
+      <nav className="flex md:flex-col flex-row gap-7">
         <motion.div
           className="flex flex-col items-end gap-2 mb-6 hidden md:flex"
           whileHover={{ scale: 1.05 }}

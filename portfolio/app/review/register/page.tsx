@@ -13,9 +13,20 @@ export default function RegisterPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const response = await createVisitor(formData);
-    response.statusCode === 201 && router.push("/");
-    response.statusCode === 400 && alert("작성자 이름을 입력해주세요");
+    try {
+      const response = await createVisitor(formData);
+      console.log("API 응답:", response); // 디버깅을 위한 로그
+
+      if (response.code === 200) {
+        alert("방명록이 등록되었습니다.");
+        router.push("/review");
+      } else {
+        alert(response.message || "방명록 등록에 실패했습니다.");
+      }
+    } catch (error: any) {
+      console.error("방명록 등록 중 오류:", error);
+      alert(error.message || "방명록 등록에 실패했습니다.");
+    }
   };
 
   const handleChange = (
@@ -83,7 +94,6 @@ export default function RegisterPage() {
             </button>
             <button
               type="submit"
-              onClick={() => router.push("/review")}
               className="px-6 py-3 bg-[#A68164] text-white font-semibold rounded-lg hover:bg-[#8B6B4E] transition-all duration-300 shadow-md hover:shadow-lg"
             >
               등록

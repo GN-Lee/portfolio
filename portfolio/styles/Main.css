@@ -1,0 +1,203 @@
+/* 공통 텍스트 스타일 */
+.text-gradient-brown {
+  background: linear-gradient(to right, #8b6b4e, #a68164, #c4a68d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-dark {
+  background: linear-gradient(to right, #6b4e33, #4a3623, #8b6b4e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 공통 버튼 스타일 */
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  background-color: #a68164;
+  color: white;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  background-color: #8b6b4e;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+  padding: 0.75rem 1.5rem;
+  background-color: #f3f4f6;
+  color: #374151;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #e5e7eb;
+}
+
+/* 공통 입력 필드 스타일 */
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: white;
+  border: 2px solid rgba(166, 129, 100, 0.2);
+  border-radius: 0.5rem;
+  color: #374151;
+  transition: all 0.3s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #a68164;
+  box-shadow: 0 0 0 2px rgba(166, 129, 100, 0.2);
+}
+
+/* 공통 카드 스타일 */
+.card {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* 공통 섹션 스타일 */
+.section {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #fdfbf7, #a68164);
+  padding: 4rem 2rem;
+}
+
+/* 공통 헤딩 스타일 */
+.heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #a68164;
+}
+
+/* 공통 레이블 스타일 */
+.label {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #a68164;
+  margin-bottom: 0.75rem;
+}
+
+/* 공통 컨테이너 스타일 */
+.container {
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 공통 애니메이션 스타일 */
+.fade-in {
+  transition: all 0.3s;
+}
+
+/* 공통 반응형 텍스트 크기 */
+.responsive-text {
+  font-size: 2.25rem;
+}
+
+@media (min-width: 768px) {
+  .responsive-text {
+    font-size: 6rem;
+  }
+}
+
+/* 공통 그림자 효과 */
+.shadow-effect {
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+}
+
+/* 메인 페이지 스타일 */
+.main-container {
+  width: 100%;
+  height: 100vh;
+  color: #1f2937;
+  position: relative;
+}
+
+.main-video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  overflow: hidden;
+  opacity: 0.8;
+}
+
+.main-text-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 1rem;
+}
+
+.main-welcome-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.main-welcome-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.main-text-large {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.main-text-medium {
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .main-text-large {
+    font-size: 4.5rem;
+  }
+
+  .main-text-medium {
+    font-size: 3.75rem;
+  }
+}
+
+.main-text-gradient {
+  background: linear-gradient(to right, #8b6b4e, #a68164, #c4a68d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.main-text-gradient-dark {
+  background: linear-gradient(to right, #6b4e33, #4a3623, #8b6b4e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

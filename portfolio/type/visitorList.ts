@@ -3,6 +3,7 @@ export interface VisitorList {
   name: string;
   comment: string;
   createdAt: Date;
+  likes: number;
 }
 
 export type VisitorResponseData = VisitorList & {

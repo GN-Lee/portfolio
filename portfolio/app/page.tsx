@@ -12,18 +12,20 @@ export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
+    if (typeof window !== "undefined") {
+      const handleMouseMove = (e: MouseEvent) => {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }
   }, []);
 
   return (
     <div className="relative cursor-none bg-[#FDFBF7]">
       <motion.div
-        className="fixed w-16 h-16 rounded-full bg-[#8B6B4E]/30 pointer-events-none z-100 mix-blend-multiply"
+        className="fixed w-16 h-16 rounded-full bg-[#8B6B4E]/30 pointer-events-none z-100 mix-blend-multiply hidden md:block"
         animate={{
           x: mousePosition.x - 32,
           y: mousePosition.y - 32,
@@ -32,10 +34,10 @@ export default function Home() {
         transition={{ duration: 0.1, ease: "easeOut" }}
       />
       <motion.div
-        className="fixed pointer-events-none z-100"
+        className="fixed pointer-events-none z-100 hidden md:block"
         animate={{
           x: mousePosition.x - 12,
-          y: mousePosition.y - 20,
+          y: mousePosition.y - 12,
           rotate: 360,
         }}
         transition={{
@@ -43,7 +45,7 @@ export default function Home() {
           ease: "linear",
           rotate: {
             repeat: Infinity,
-            duration: 5,
+            duration: 10,
           },
         }}
       >

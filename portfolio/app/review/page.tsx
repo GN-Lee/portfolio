@@ -8,11 +8,23 @@ import { getVisitor } from "@/utils/api";
 export default function Home() {
   const [visitor, setVisitor] = useState<VisitorList[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [likedPosts, setLikedPosts] = useState<{ [key: number]: boolean }>({});
 
   useEffect(() => {
     getVisitor().then((visitor) => setVisitor(visitor));
     window.scrollTo(0, 0);
   }, []);
+
+  const handleLike = (visitorId: number) => {
+    setLikedPosts((prev) => ({
+      ...prev,
+      [visitorId]: !prev[visitorId],
+    }));
+
+    setVisitor((prev) =>
+      prev.map((v) => (v.id === visitorId ? { ...v, likes: v.likes + 1 } : v))
+    );
+  };
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#FDFBF7] to-[#A68164] text-gray-800 py-16 px-8">
@@ -52,7 +64,11 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-br from-[#A68164]/5 to-[#8B6B4E]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="absolute -inset-1 bg-gradient-to-r from-[#A68164] to-[#8B6B4E] rounded-3xl blur opacity-10 group-hover:opacity-20 transition-opacity duration-500 -z-10"></div>
                     <div className="relative z-10">
-                      <VisitorCard visitor={visitor} />
+                      <VisitorCard
+                        visitor={visitor}
+                        isLiked={likedPosts[visitor.id] || false}
+                        onLike={() => handleLike(visitor.id)}
+                      />
                     </div>
                     <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#A68164] via-[#8B6B4E] to-[#A68164] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-full"></div>
                     <div className="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-[#A68164] via-[#8B6B4E] to-[#A68164] transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500 rounded-full"></div>

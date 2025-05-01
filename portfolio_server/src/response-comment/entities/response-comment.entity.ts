@@ -15,6 +15,9 @@ export class ResponseComment {
   @Column({ type: 'text' })
   comment: string;
 
+  @Column({ type: 'varchar', length: 100, name: '닉네임' })
+  nickname: string;
+
   @CreateDateColumn({ type: 'timestamp', name: '등록일' })
   createdAt: Date;
 
